@@ -89,11 +89,11 @@ export function drawChallenges(ctx, stats) {
     const col = i % 2;
     const row = Math.floor(i / 2);
     const x = 130 + col * 520;
-    const y = 168 + row * 92;
+    const y = 164 + row * 88;
     const p = challengeProgress(stats, c);
     panel(ctx, x, y, 500, 80, p.done ? 'rgba(30,52,26,0.9)' : 'rgba(13,17,34,0.88)');
     text(ctx, c.name, x + 18, y + 30, 18, p.done ? '#a5d6a7' : '#fff7e6', 'left', 800);
-    fitText(ctx, c.desc, x + 18, y + 54, 340, 15, '#cdbf9f', 'left', 600);
+    fitText(ctx, c.desc, x + 18, y + 54, 312, 15, '#cdbf9f', 'left', 600);
     text(ctx, p.done ? '✓ DONE' : `${p.current}/${p.goal}`, x + 482, y + 32, 17, p.done ? '#a5d6a7' : '#ffd76a', 'right', 800);
     ctx.fillStyle = 'rgba(255,255,255,0.14)';
     rr(ctx, x + 330, y + 44, 150, 9, 4);
@@ -102,6 +102,9 @@ export function drawChallenges(ctx, stats) {
     rr(ctx, x + 330, y + 44, Math.max(6, 150 * (p.current / p.goal)), 9, 4);
     ctx.fill();
   });
+  // the career in one line, so this screen inventories the whole shell:
+  // stats, earnings and the saved week behind CONTINUE
+  text(ctx, `PILOT CAREER — ${stats.legsFlown} LEGS · ${stats.deliveries} DELIVERIES · ${stats.totalEarned} CREDITS EARNED · WEEK SAVED LOCALLY — CONTINUE RESUMES IT`, VIEW_W / 2, 620, 15.5, '#8fa8bf', 'center', 700);
 }
 
 export function drawStats(ctx, stats, G) {

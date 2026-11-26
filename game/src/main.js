@@ -455,7 +455,7 @@ function fitCanvas() {
 window.addEventListener('resize', fitCanvas);
 fitCanvas();
 
-// Screenshot staging: ?shot=cover|menu|map|delivered renders one
+// Screenshot staging: ?shot=cover|water|shell|map renders one
 // deterministic frame of the named moment instead of starting the loop.
 const params = new URLSearchParams(window.location.search);
 if (params.get('shot')) {
